@@ -1,0 +1,3 @@
+warp08.tga warp09.tga -208.07 -4.95
+warp09.tga warp10.tga -209.01 -4.78
+warp10.tga warp11.tga -209.07 -4.47

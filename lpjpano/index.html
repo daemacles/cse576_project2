@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head><body>
+
+<script language="JavaScript">
+<!--//
+var myBrowser = navigator.appName;
+var myVersion = parseFloat(navigator.appVersion);
+if (myBrowser == 'Netscape' && myVersion < 4.0) 
+{
+document.write('<applet archive="lpjpanoNS3.zip" code="LPPano.class" width=640 height=480>');
+}
+else
+{
+document.write('<applet archive="lpjpano.zip" code="LPPano.class" width=640 height=480>');
+}
+//-->
+</script>
+<param name=cabbase value="lpjpano.cab">
+<param name=file value="./your_pano.ivr">
+</applet>
+</body>
+</html>
