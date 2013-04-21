@@ -47,12 +47,6 @@
 #ifndef IL_CONVERT_H
 #define IL_CONVERT_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <fstream>
-
-using namespace std;
-
 template <class T1, class T2>
 void ScaleAndOffset(CImageOf<T1>& src, CImageOf<T2>& dst,
                     float scale, float offset);

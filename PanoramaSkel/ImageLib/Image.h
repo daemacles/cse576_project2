@@ -32,11 +32,13 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
-#include "RefCntMem.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
 #include <string.h>
+#include <math.h>
+
+#include "RefCntMem.h"
 
 #ifdef WIN32
 #include <typeinfo.h>
@@ -142,6 +144,7 @@ public:
     T& Pixel(int x, int y, int band);
 
     CImageOf SubImage(int x, int y, int width, int height);   // sub-image sharing memory
+    double PixelLerp(double x, double y, int band);
 
     T MinVal(void);     // minimum allowable value (for clipping)
     T MaxVal(void);     // maximum allowable value (for clipping)

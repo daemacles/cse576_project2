@@ -49,13 +49,8 @@
 #ifndef IL_WARPIMAGE_H
 #define IL_WARPIMAGE_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 #include <cmath>
 #include <vector>
-
-using namespace std;
 
 enum EWarpInterpolationMode
 {
@@ -117,10 +112,8 @@ static inline T ResampleBiLinear(T src[], int oH, int oV, float xf, float yf)
 
 static void InitializeCubicLUT(float a)
 {
-    //float zero = 0.0;      // not implemented yet
-    //float error = 1.0f / zero;
-    printf("Not implemented yet\n");
-    exit(1);
+    float zero = 0.0;      // not implemented yet
+    float error = 1.0f / zero;
 }
 
 template <class T>

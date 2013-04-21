@@ -30,9 +30,6 @@
 #define PYRAMID_H
 
 #include "Image.h"
-#include <vector>
-#include "Convolve.h"
-
 
 struct CPyramidAttributes
 {

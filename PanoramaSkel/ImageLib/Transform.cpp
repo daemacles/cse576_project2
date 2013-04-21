@@ -7,6 +7,7 @@
 //  Transform.h         longer description
 //
 // Copyright © Richard Szeliski, 2001.  See Copyright.h for more details
+// (modified for CSE576 Spring 2005)
 //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -15,6 +16,13 @@
 #ifndef M_PI 
 #define M_PI    3.1415926536
 #endif // M_PI
+
+CVector3::CVector3()
+{
+	// Default constructor (zero)
+	for (int i = 1; i < 3; i++)
+		m_array[i] = 0;
+}
 
 CTransform3x3::CTransform3x3()
 {
@@ -111,6 +119,21 @@ CTransform3x3 CTransform3x3::Inverse(void)
         }
     }
     return M1;
+}
+
+CVector3 CTransform3x3::operator*(const CVector3& v) const
+{
+	// Transform vector
+	const CTransform3x3 &M = *this;
+	CVector3 v2;
+	for (int i=0; i < 3; i++)
+	{
+		double sum = 0.0;
+		for (int k = 0; k < 3; k++)
+			sum += M[i][k] * v[k];
+		v2[i] = sum;
+	}
+	return v2;
 }
 
 CTransform3x3 CTransform3x3::operator*(const CTransform3x3& M1)

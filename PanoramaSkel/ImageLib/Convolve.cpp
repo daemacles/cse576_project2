@@ -15,6 +15,7 @@
 //  Convolve.h          longer description of these routines
 //
 // Copyright ?Richard Szeliski, 2001.  See Copyright.h for more details
+// Some bug fixes by Jonathan Beall, 2008
 //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -108,19 +109,13 @@ template <class T>
                 double sum = 0;
                 for (int k = 0; k < kShape.height; k++) {
                     for (int l = 0; l < kShape.width; l++) {
-                        // if ((x-kernel.origin[0]+k >= 0) &&
-                        //     (x-kernel.origin[0]+k < sShape.width) &&
-                        //     (y-kernel.origin[1]+l >= 0) &&
-                        //     (y-kernel.origin[1]+l < sShape.height)) {
-                        //     sum += kernel.Pixel(k,l,0) * src.Pixel(x-kernel.origin[0]+k,
-                        //                                            y-kernel.origin[1]+l, c);
-                        // }
-                        if ((x+kernel.origin[0]+l >= 0) &&
-                            (x+kernel.origin[0]+l < sShape.width) &&
-                            (y+kernel.origin[1]+k >= 0) &&
-                            (y+kernel.origin[1]+k < sShape.height)) {
-                            sum += kernel.Pixel(l,k,0) * src.Pixel(x+kernel.origin[0]+l,
-                                                                   y+kernel.origin[1]+k, c);
+
+                        if ((x-kernel.origin[0]+l >= 0) &&
+                            (x-kernel.origin[0]+l < sShape.width) &&
+                            (y-kernel.origin[1]+k >= 0) &&
+                            (y-kernel.origin[1]+k < sShape.height)) {
+                            sum += kernel.Pixel(l,k,0) * src.Pixel(x-kernel.origin[0]+l,
+                                                                   y-kernel.origin[1]+k, c);
                         }                        
                     }
                 }
@@ -226,11 +221,11 @@ KernelInit::KernelInit()
     }
 
     ConvolveKernel_121.ReAllocate(CShape(3, 1, 1), k_121, false, 3);
-    ConvolveKernel_121.origin[0] = -1;
+    ConvolveKernel_121.origin[0] = 1;
     ConvolveKernel_14641.ReAllocate(CShape(5, 1, 1), k_14641, false, 5);
-    ConvolveKernel_14641.origin[0] = -2;
+    ConvolveKernel_14641.origin[0] = 2;
     ConvolveKernel_8tapLowPass.ReAllocate(CShape(8, 1, 1), k_8ptI, false, 8);
-    ConvolveKernel_8tapLowPass.origin[0] = -4;
+    ConvolveKernel_8tapLowPass.origin[0] = 4;
     ConvolveKernel_7x7.ReAllocate(CShape(7, 7, 1), k_7x7, false, 7);
 
     /* Sobel filters */
@@ -243,11 +238,11 @@ KernelInit::KernelInit()
                                  1,  2,  1 };    
             
     ConvolveKernel_SobelX.ReAllocate(CShape(3, 3, 1), k_SobelX, false, 3);
-    ConvolveKernel_SobelX.origin[0] = -1;
-    ConvolveKernel_SobelX.origin[1] = -1;
+    ConvolveKernel_SobelX.origin[0] = 1;
+    ConvolveKernel_SobelX.origin[1] = 1;
     ConvolveKernel_SobelY.ReAllocate(CShape(3, 3, 1), k_SobelY, false, 3);
-    ConvolveKernel_SobelY.origin[0] = -1;
-    ConvolveKernel_SobelY.origin[1] = -1;
+    ConvolveKernel_SobelY.origin[0] = 1;
+    ConvolveKernel_SobelY.origin[1] = 1;
 }
 
 KernelInit ConvKernelInitializer;

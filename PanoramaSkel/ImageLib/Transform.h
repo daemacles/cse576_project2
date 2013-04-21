@@ -20,6 +20,26 @@
 #ifndef IL_TRANSFORM_H
 #define IL_TRANSFORM_H
 
+class CVector3
+{
+public:
+	CVector3();                         // default constructor (zero)
+	double &operator[](int i);          // element access
+	const double &operator[](int i) const;    // element access
+private:
+	double m_array[3];
+};
+
+inline double &CVector3::operator[](int i)
+{
+    return m_array[i];
+}
+
+inline const double &CVector3::operator[](int i) const
+{
+    return m_array[i];
+}
+
 class CTransform3x3
 {
 public:
@@ -27,6 +47,7 @@ public:
     static CTransform3x3 Translation(float tx, float ty);
     static CTransform3x3 Rotation(float degrees);
     CTransform3x3 Inverse(void  );      // matrix inverse
+	CVector3 operator*(const CVector3& v) const;
     CTransform3x3 operator*(const CTransform3x3& m);
     double* operator[](int i);          // access the elements
     const double* operator[](int i) const;    // access the elements
