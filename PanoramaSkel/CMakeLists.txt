@@ -7,7 +7,7 @@ include_directories ("${PROJECT_SOURCE_DIR}/ImageLib")
 find_package (OpenGL REQUIRED)
 
 if (CMAKE_COMPILER_IS_GNUCC)
-   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 endif (CMAKE_COMPILER_IS_GNUCC)
 
 add_subdirectory (ImageLib)
@@ -18,5 +18,8 @@ add_executable (Panorama BlendImages.cpp
                          WarpSpherical.cpp
                          Project2.cpp)
 
-target_link_libraries (Panorama ImageLib png jpeg X11 Xext Xi Xmu)
-
+if( MSVC )
+    target_link_libraries (Panorama ImageLib)
+else()
+    target_link_libraries (Panorama ImageLib png jpeg X11 Xext Xi Xmu)
+endif()
