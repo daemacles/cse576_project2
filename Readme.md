@@ -16,7 +16,11 @@ Your `Panorama` executable will be in the `build/` directory.
 Windows VC++
 ------------
 
-I have no idea, sorry.  But it works, they assure me.
+First, [download cmake](http://www.cmake.org/cmake/resources/software.html), install it (ensuring that you have added cmake to the system PATH) and run in a console:
+    
+    C:\<path to this repository\> cmake -G "Visual Studio 11"
+
+This will build a .sln file for Visual Studio 2012, you may then enter the `Debug` folder and run `Panorama.exe` from the command prompt to run the executable
 
 Compiling with Make
 ===================
