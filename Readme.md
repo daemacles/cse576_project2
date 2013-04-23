@@ -29,8 +29,7 @@ executable
 Compiling with Make
 ===================
 
-This isn't too recommended because the default `Makefile`s aren't that great.
-Feel free to contribute better ones.
+This Makefile will track dependencies.
 
 Linux
 -----
@@ -38,3 +37,10 @@ Linux
 As usual, go to `PanoramaSkel` and
 
     $ make -j<number of cores>
+
+Adding new Files
+================
+
+Add your new .cpp files to either `CMakeFiles.txt` or `Makefile` respectively.
+Don't worry about header files, they are automatically tracked with either
+method.
