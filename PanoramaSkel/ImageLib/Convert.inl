@@ -198,9 +198,10 @@ void InstantiateConvert(CImageOf<T> src)
     BandSelect(r1, r2, 0, 0);
 }
 
-void InstantiateAllConverts(void)
-{
-    InstantiateConvert(CByteImage());
-    InstantiateConvert(CIntImage());
-    InstantiateConvert(CFloatImage());
-}
+
+// void InstantiateAllConverts(void)
+// {
+//     InstantiateConvert(CByteImage());
+//     InstantiateConvert(CIntImage());
+//     InstantiateConvert(CFloatImage());
+// }

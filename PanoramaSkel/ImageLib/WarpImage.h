@@ -51,6 +51,8 @@
 
 #include <cmath>
 #include <vector>
+#include "Image.h"
+#include "Transform.h"
 
 enum EWarpInterpolationMode
 {
@@ -250,5 +252,6 @@ void WarpGlobal(CImageOf<T> src, CImageOf<T>& dst,
     }
 }
 
+#include "WarpImage.inl"
 
 #endif

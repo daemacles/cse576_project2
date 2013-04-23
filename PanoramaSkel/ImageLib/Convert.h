@@ -66,4 +66,6 @@ CImageOf<T> ConvertToGray(CImageOf<T> src);
 template <class T>
 void BandSelect(CImageOf<T>& src, CImageOf<T>& dst, int sBand, int dBand);
 
+#include "Convert.inl"
+
 #endif

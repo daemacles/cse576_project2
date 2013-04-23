@@ -1,4 +1,8 @@
 *.o
+*.d
+*.a
 *~
+\#*\#
 PanoramaSkel/build
 PanoramaSkel/build/*
+Panorama

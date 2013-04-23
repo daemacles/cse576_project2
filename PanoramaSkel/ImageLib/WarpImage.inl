@@ -25,12 +25,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////
 
-#include "Image.h"
-#include "Transform.h"
-#include "WarpImage.h"
-#include <math.h>
-#include <vector>
-
 
 //
 //  Resample a complete image, given source pixel addresses
@@ -81,11 +75,11 @@ void WarpLocal(CImageOf<T> src, CImageOf<T>& dst,
 
 // Instantiate the code
 
-void WarpInstantiate(void)
-{
-    CByteImage i1;
-    CFloatImage uv1;
-    WarpLocal(i1, i1, uv1, false, eWarpInterpLinear, 1.0f);
-    CTransform3x3 M;
-    WarpGlobal(i1, i1, M, eWarpInterpLinear, 1.0f);
-}
+// void WarpInstantiate(void)
+// {
+//     CByteImage i1;
+//     CFloatImage uv1;
+//     WarpLocal(i1, i1, uv1, false, eWarpInterpLinear, 1.0f);
+//     CTransform3x3 M;
+//     WarpGlobal(i1, i1, M, eWarpInterpLinear, 1.0f);
+// }
