@@ -7,8 +7,11 @@ include_directories ("${PROJECT_SOURCE_DIR}/ImageLib")
 find_package (OpenGL REQUIRED)
 
 if (CMAKE_COMPILER_IS_GNUCC)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-endif (CMAKE_COMPILER_IS_GNUCC)
+    execute_process(COMMAND ${CMAKE_C_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION)
+    if (GCC_VERSION VERSION_GREATER 4.7 OR GCC_VERSION VERSION_EQUAL 4.7 )
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    endif()
+endif()
 
 add_subdirectory (ImageLib)
 
