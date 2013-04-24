@@ -11,6 +11,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include "RefCntMem.h"
+#include <stdlib.h>
 
 CRefCntMem::CRefCntMem()
 {
@@ -38,7 +39,7 @@ void CRefCntMem::DecrementCount()
                 if (m_ptr->m_delFn)
                     m_ptr->m_delFn(m_ptr->m_memory);
                 else
-                    delete m_ptr->m_memory;
+                    free( m_ptr->m_memory );
             }
             delete m_ptr;
         }
