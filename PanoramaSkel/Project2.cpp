@@ -307,7 +307,7 @@ int Script(int argc, const char *argv[])
     char line[1024];
     while (fgets(line, 1024, stream))
     {
-        fprintf(stderr, line);
+        fprintf(stderr, "%s\n", line);
         if (line[0] == '/' && line[1] == '/')
             continue;   // skip the comment line
         char *ptr = line;
@@ -355,7 +355,7 @@ int main(int argc, const char *argv[])
 		}
     }
     catch (CError &err) {
-        printf(err.message);
+        printf("%s\n", err.message);
         return -1;
     }
     return 0;
